@@ -1,6 +1,6 @@
 NAME = cub3d
 
-SRCS = main.c
+SRCS = main.c sizemap.c
 GNL   =  $(wildcard getnextline/*.c)
 
 
@@ -9,7 +9,8 @@ FLAGS = -Wextra -Werror -Wall
 CC = gcc ${FLAGS}
 RM = rm -f
 
-OBJS = ${SRCS:.c=.o} ${GNL:.c=.o}
+OBJS = ${SRCS:.c=.o} ${GNL:.c=.o} 
+
 
 RED		=	\033[31m
 GREEN	=	\033[32m
