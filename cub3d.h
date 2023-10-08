@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:00:25 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/08 21:43:59 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/08 22:54:58 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,23 @@
 # include <sys/time.h>
 # include <time.h>
 
+typedef struct s_value
+{
+	char	*no;
+	char	*we;
+	char	*so;
+	char	*ea;
+	int		f[3];
+	int		c[3];
+}	    t_value;
+
 typedef struct s_maps
 {
 	char			**readmap;
 	char			**map;
 	int				x;
 	int				y;
+    struct s_value  value;
 }					t_mapp;
 
 typedef struct s_cub3d
