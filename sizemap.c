@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 17:09:04 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/08 21:42:32 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/09 02:24:30 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,6 @@ void	ft_print_mat(char **mat)
 	}
 }
 
-
-void    ft_check_size(t_cub3d *cub3d, int fd)
-{
-    char *g_n_l;
-
-    g_n_l = get_next_line(fd);
-    if(!g_n_l)
-        exit(write(2, "Error\nMap not found\n", 20));
-    cub3d->mapp.y = 0;
-    cub3d->mapp.x = strlen(g_n_l) - 1;
-    while(g_n_l)
-    {
-       free(g_n_l);
-       g_n_l = get_next_line(fd);
-       cub3d->mapp.y++; 
-    }
-    free(g_n_l);
-    printf("%d\n", cub3d->mapp.y);
-    close(fd);
-}
 
 void	ft_check_input( int ac, char *av)
 {
