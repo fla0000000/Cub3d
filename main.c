@@ -6,19 +6,28 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:59:53 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/09 03:43:06 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/09 03:53:43 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void parser_map( char *map_cub)
+void parser_map(t_data *data, char *map_cub)
 {
     int fd;
+    char *buff;
 
+    buff = 0;
     fd = open(map_cub, O_RDONLY);
     if(fd == -1)
        exit(write(2, "Error\nMap not found\n", 20));
+    buff = get_next_line(fd);
+    while(buff)
+    {
+        ft_parsering(data, buff);
+        free(buff);
+        buff = get_next_line(fd);
+    }
 }
 
 void init_mlx(t_cub3d *cub3d)
@@ -35,6 +44,7 @@ int main(int ac, char **av)
         
     ft_bzero(&game, sizeof(t_data));
     ft_check_input(ac, av[1]);
+    parser_map(&game, av[1]);
     init_mlx(&cub3d);
      parser_map(av[1]);
     
