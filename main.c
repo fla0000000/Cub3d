@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:59:53 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/09 02:46:52 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/09 03:43:06 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,22 @@ void parser_map( char *map_cub)
        exit(write(2, "Error\nMap not found\n", 20));
 }
 
+void init_mlx(t_cub3d *cub3d)
+{
+     cub3d->mlx =  mlx_init();
+    cub3d->mlx_win = mlx_new_window(cub3d->mlx, 500, 500, "CUB3D" );
+    mlx_loop(cub3d->mlx);
+}
+
 int main(int ac, char **av)
 {
     t_data game;
     t_cub3d cub3d;
         
-    ft_bzero(&game, sizeof(game));
+    ft_bzero(&game, sizeof(t_data));
     ft_check_input(ac, av[1]);
-    cub3d.mlx =  mlx_init();
-    parser_map(av[1]);
-    cub3d.mlx_win = mlx_new_window(cub3d.mlx, 500, 500, "CUB3D" );
-    mlx_loop(cub3d.mlx);
+    init_mlx(&cub3d);
+     parser_map(av[1]);
     
 }
 
