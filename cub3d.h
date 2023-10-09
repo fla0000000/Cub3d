@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:00:25 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/09 03:18:01 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/09 16:17:56 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ typedef struct s_cub3d
 }					t_cub3d;
 
 //check_map
+int ft_parsering(t_data *game, char *buff);
 void				ft_check_input(int ac, char *av);
 
 #endif

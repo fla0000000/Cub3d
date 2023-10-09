@@ -6,17 +6,18 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:59:53 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/09 03:53:43 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/09 16:18:13 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void parser_map(t_data *data, char *map_cub)
+void parser_map(t_data *game, char *map_cub)
 {
     int fd;
     char *buff;
 
+    (void)game;
     buff = 0;
     fd = open(map_cub, O_RDONLY);
     if(fd == -1)
@@ -24,7 +25,7 @@ void parser_map(t_data *data, char *map_cub)
     buff = get_next_line(fd);
     while(buff)
     {
-        ft_parsering(data, buff);
+        ft_parsering(game, buff);
         free(buff);
         buff = get_next_line(fd);
     }
@@ -46,7 +47,7 @@ int main(int ac, char **av)
     ft_check_input(ac, av[1]);
     parser_map(&game, av[1]);
     init_mlx(&cub3d);
-     parser_map(av[1]);
+    //  parser_map(av[1]);
     
 }
 

@@ -2,6 +2,7 @@ NAME = cub3d
 
 SRCS = main.c sizemap.c
 GNL   =  $(wildcard getnextline/*.c)
+PARSER = $(wildcard parser/*.c)
 
 
 FLAGS = -Wextra -Werror -Wall
@@ -9,7 +10,7 @@ FLAGS = -Wextra -Werror -Wall
 CC = gcc ${FLAGS}
 RM = rm -f
 
-OBJS = ${SRCS:.c=.o} ${GNL:.c=.o} 
+OBJS = ${SRCS:.c=.o} ${GNL:.c=.o} ${PARSER:.c=.o} 
 
 
 RED		=	\033[31m
