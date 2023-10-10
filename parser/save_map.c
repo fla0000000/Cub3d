@@ -6,18 +6,93 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 03:49:17 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/09 16:19:01 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/11 00:04:56 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int ft_parsering(t_data *game, char *buff)
+void	ft_texture(t_data *game, char *buff)
 {
-    (void)game;
-    if(!buff)
-        exit(-1);
-    write(1, buff, strlen(buff));
-    
-    return 0;
+	char	*text;
+
+	text = ft_substr(buff, 0, 2);
+	if (ft_strncmp("NO", text, 2) == 0)
+	{
+		game->value.no = ft_substr(buff, 3, ft_strlen(buff) - 3);
+		printf("no:%s\n", game->value.no);
+	}
+	else if (ft_strncmp("SO", text, 2))
+	{
+		game->value.so = ft_substr(buff, 3, ft_strlen(buff) - 3);
+		printf("so:%s\n", game->value.so);
+	}
+	else if (ft_strncmp("WE", text, 2))
+	{
+		game->value.we = ft_substr(buff, 3, ft_strlen(buff) - 3);
+		printf("we:%s\n", game->value.we);
+	}
+	else if (ft_strncmp("EA", text, 2))
+	{
+		game->value.ea = ft_substr(buff, 3, ft_strlen(buff) - 3);
+		printf("ea:%s", game->value.ea);
+	}
+}
+void	ft_ciel_floor(t_data *game, char *buff)
+{
+	char	*text;
+	char	*substr;
+	int		i;
+
+	i = 0;
+	substr = NULL;
+	text = ft_substr(buff, 0, 1);
+	substr = ft_substr(buff, 2, ft_strlen(buff) - 2);
+	while (!ft_isdigit(substr[i]))
+		i++;
+	if (ft_atoi(substr + i) > 255 || ft_atoi(substr + i) < 0)
+		exit(write(2, "Error: Invalid Texture\n", 23));
+	if (ft_strncmp("C", text, 1) == 0)
+		game->value.c.b = ft_atoi(substr + i);
+	else
+		game->value.f.b = ft_atoi(substr + i);
+	while (ft_isdigit(substr[i]))
+		i++;
+	while (!ft_isdigit(substr[i]))
+		i++;
+	if (ft_atoi(substr + i) > 255 || ft_atoi(substr + i) < 0)
+		exit(write(2, "Error: Invalid Texture\n", 23));
+	if (ft_strncmp("C", text, 1) == 0)
+		game->value.c.g = ft_atoi(substr + i);
+	else
+		game->value.f.g = ft_atoi(substr + i);
+	while (ft_isdigit(substr[i]))
+		i++;
+	while (!ft_isdigit(substr[i]))
+		i++;
+	if (ft_atoi(substr + i) > 255 || ft_atoi(substr + i) < 0)
+		exit(write(2, "Error: Invalid Texture\n", 23));
+	if (ft_strncmp("C", text, 1) == 0)
+		game->value.c.r = ft_atoi(substr + i);
+	else
+		game->value.f.r = ft_atoi(substr + i);
+}
+
+int	ft_parsering(t_data *game, char *buff)
+{
+	(void)game;
+	if (!buff)
+		exit(-1);
+	if (ft_strchr("NSWE", buff[0]))
+	{
+		ft_texture(game, buff);
+	}
+	if (ft_strchr("CF", buff[0]))
+	{
+		// printf("%c", buff[0]);
+		ft_ciel_floor(game, buff);
+	}
+	// write(1, buff, strlen(buff));
+	// printf("%lu\n", strlen(buff));
+	return (0);
 }

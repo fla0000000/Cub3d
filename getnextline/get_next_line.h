@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 14:18:33 by fbiondo           #+#    #+#             */
-/*   Updated: 2023/10/09 02:46:06 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/10 03:25:49 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ char	*ft_read(int fd, char *backup);
 char	*ft_write(char *backup);
 char	*ft_backup(char *backup);
 char	*ft_strchr(char *s, int c);
-char	*ft_strjoin(char *backup, char *buff);
-size_t	ft_strlen(const char *s);
+char	*ft_strjoin1(char *backup, char *buff);
+size_t	ft_strlen1(const char *s);
 void	ft_bzero(void *s, size_t n);
 
 

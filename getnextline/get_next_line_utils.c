@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbiondo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 14:16:25 by fbiondo           #+#    #+#             */
-/*   Updated: 2023/03/03 14:17:45 by fbiondo          ###   ########.fr       */
+/*   Updated: 2023/10/10 21:29:12 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen1(const char *str)
 {
 	int	count;
 
@@ -30,7 +30,7 @@ char	*ft_strchr(char *s, int c)
 	if (!s)
 		return (0);
 	if (c == '\0')
-		return ((char *)&s[ft_strlen(s)]);
+		return ((char *)&s[ft_strlen1(s)]);
 	while (s[i] != '\0')
 	{
 		if (s[i] == (char) c)
@@ -40,7 +40,7 @@ char	*ft_strchr(char *s, int c)
 	return (0);
 }
 
-char	*ft_strjoin(char *backup, char *buff)
+char	*ft_strjoin1(char *backup, char *buff)
 {
 	size_t	i;
 	size_t	j;
@@ -53,7 +53,7 @@ char	*ft_strjoin(char *backup, char *buff)
 	}
 	if (!backup || !buff)
 		return (NULL);
-	str = malloc(sizeof(char) * ((ft_strlen(backup) + ft_strlen(buff)) + 1));
+	str = malloc(sizeof(char) * ((ft_strlen1(backup) + ft_strlen1(buff)) + 1));
 	if (str == NULL)
 		return (NULL);
 	i = -1;
@@ -63,7 +63,7 @@ char	*ft_strjoin(char *backup, char *buff)
 			str[i] = backup[i];
 	while (buff[j] != '\0')
 		str[i++] = buff[j++];
-	str[ft_strlen(backup) + ft_strlen(buff)] = '\0';
+	str[ft_strlen1(backup) + ft_strlen1(buff)] = '\0';
 	free(backup);
 	return (str);
 }

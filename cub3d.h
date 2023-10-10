@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:00:25 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/09 16:17:56 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/10 01:02:39 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 //# include "minilibx-linux/mlx.h"
-//# include "libft/libft.h"
+# include "libftreal/libft.h"
 # include "getnextline/get_next_line.h"
 # include <fcntl.h>
 # include <math.h>
@@ -55,6 +55,7 @@ typedef struct s_data
 {
 	int				x;
 	int				y;
+    char **real_map;
 	struct s_value	value;
 	struct s_map	*map;
 }					t_data;

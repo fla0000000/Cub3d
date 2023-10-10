@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:59:53 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/09 16:18:13 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/11 00:03:30 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ void parser_map(t_data *game, char *map_cub)
         free(buff);
         buff = get_next_line(fd);
     }
+    free(buff);
+     printf("game->value.c.b:%d\n", game->value.c.b);
+     printf("game->value.c.g:%d\n", game->value.c.g);
+    printf("game->value.f.b:%d\n", game->value.f.b);
+    printf("game->value.f.g:%d\n", game->value.f.g);
+    printf("game->value.f.r:%d\n", game->value.f.r);
+           printf("game->value.r.g:%d\n", game->value.c.r);
 }
 
 void init_mlx(t_cub3d *cub3d)

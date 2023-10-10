@@ -1,16 +1,16 @@
 NAME = cub3d
 
 SRCS = main.c sizemap.c
+LBFT = $(wildcard libftreal/*.c)
 GNL   =  $(wildcard getnextline/*.c)
 PARSER = $(wildcard parser/*.c)
-
 
 FLAGS = -Wextra -Werror -Wall
 
 CC = gcc ${FLAGS}
 RM = rm -f
 
-OBJS = ${SRCS:.c=.o} ${GNL:.c=.o} ${PARSER:.c=.o} 
+OBJS = ${SRCS:.c=.o} ${GNL:.c=.o} ${PARSER:.c=.o} ${LBFT:.c=.o} 
 
 
 RED		=	\033[31m

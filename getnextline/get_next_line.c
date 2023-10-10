@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbiondo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 14:18:04 by fbiondo           #+#    #+#             */
-/*   Updated: 2023/03/03 14:20:53 by fbiondo          ###   ########.fr       */
+/*   Updated: 2023/10/10 03:25:26 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_read(int fd, char *backup)
 			return (NULL);
 		}
 		buff[bytes] = '\0';
-		backup = ft_strjoin(backup, buff);
+		backup = ft_strjoin1(backup, buff);
 	}
 	free(buff);
 	return (backup);
@@ -78,7 +78,7 @@ char	*ft_backup(char *backup)
 		free(backup);
 		return (NULL);
 	}
-	str = (char *)malloc(sizeof(char) * (ft_strlen(backup) - i + 1));
+	str = (char *)malloc(sizeof(char) * (ft_strlen1(backup) - i + 1));
 	if (!str)
 		return (NULL);
 	i++;
