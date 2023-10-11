@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:59:53 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/11 16:46:44 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/11 18:04:46 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,17 @@ void init_mlx(t_cub3d *cub3d)
     mlx_loop(cub3d->mlx);
 }
 
+void initfc(t_data *game)
+{
+    game->value.c.b = -1;
+    game->value.c.r = -1;
+    game->value.c.g = -1;
+    game->value.f.b = -1;
+    game->value.f.r = -1;
+    game->value.f.g = -1;
+    
+}
+
 int main(int ac, char **av)
 {
     t_data game;
@@ -56,6 +67,7 @@ int main(int ac, char **av)
         
     ft_bzero(&game, sizeof(t_data));
     ft_check_input(ac, av[1]);
+    initfc(&game);
     parser_map(&game, av[1]);
     ft_check_text(&game);
     init_mlx(&cub3d);

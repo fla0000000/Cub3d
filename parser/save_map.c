@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 03:49:17 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/11 16:46:10 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/11 17:58:11 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,19 @@ void	ft_ciel_floor2(t_data *game, char *text, char *substr, int i)
 	while (!ft_isdigit(substr[i]))
 		i++;
 	if (ft_atoi(substr + i) > 255 || ft_atoi(substr + i) < 0)
-		exit(write(2, "Error: Invalid Texture\n", 23));
+		exit(write(2, "Error: Invalid Texture\n", 20));
 	if (ft_strncmp("C", text, 1) == 0)
+		{
+		if(game->value.c.r > 0)
+			exit(write(2, "Error: Invalid C.R\n", 20));
 		game->value.c.r = ft_atoi(substr + i);
+		}
 	else
+		{
+			if(game->value.f.r > 0)
+					exit(write(2, "Error: Invalid F.R\n", 23));
 		game->value.f.r = ft_atoi(substr + i);
+		}
 	free(text);
 	free(substr);
 }
