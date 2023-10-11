@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:59:53 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/11 18:04:46 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/12 00:14:29 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void parser_map(t_data *game, char *map_cub)
     int fd;
     char *buff;
 
-    (void)game;
     buff = 0;
     fd = open(map_cub, O_RDONLY);
     if(fd == -1)

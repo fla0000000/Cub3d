@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:00:25 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/11 16:32:46 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/12 00:14:37 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct s_data
 {
 	int				x;
 	int				y;
-    char **real_map;
+    char **map_x;
 	struct s_value	value;
 	struct s_map	*map;
 }					t_data;
@@ -71,5 +71,6 @@ typedef struct s_cub3d
 int ft_parsering(t_data *game, char *buff);
 void				ft_check_input(int ac, char *av);
 void ft_check_text(t_data *game);
+void	ft_print_mat(char **mat);
 
 #endif

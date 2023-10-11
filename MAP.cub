@@ -2,8 +2,9 @@ NO ./maps/texture/no.xpm
 SO ./maps/texture/so.xpm
 WE ./maps/texture/we.xpm
 EA ./maps/texture/ea.xpm
-C 1,20,3,
-F 4,50 ,4
+C 1,20,2
+F 4,50,12
+
 
 
 

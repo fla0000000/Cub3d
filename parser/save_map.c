@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 03:49:17 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/11 17:58:11 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/12 00:14:55 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,21 @@ void	ft_ciel_floor2(t_data *game, char *text, char *substr, int i)
 	free(substr);
 }
 
+int check_virg(char *substr)
+{
+	int i;
+	int virg;
+	
+	virg = 0;
+	i = -1;
+	while(substr[++i])
+	{
+		if(substr[i] == 44)
+			virg++;
+	}
+	return(virg);
+}
+
 void	ft_ciel_floor(t_data *game, char *buff)
 {
 	char	*text;
@@ -91,6 +106,8 @@ void	ft_ciel_floor(t_data *game, char *buff)
 	substr = NULL;
 	text = ft_substr(buff, 0, 1);
 	substr = ft_substr(buff, 2, ft_strlen(buff) - 2);
+	if(check_virg(substr) != 2)
+		exit(write(2, "Error: Invalid Texture\n", 23));
 	while (!ft_isdigit(substr[i]))
 		i++;
 	if (ft_atoi(substr + i) > 255 || ft_atoi(substr + i) < 0)
@@ -106,7 +123,7 @@ void	ft_ciel_floor(t_data *game, char *buff)
 		if(game->value.f.b > 0)
 				exit(write(2, "Error: Double Texture\n", 23));
 		game->value.f.b = ft_atoi(substr + i);
-		}
+		} 
 	ft_ciel_floor2(game,text,substr,i);
 	
 }
@@ -128,7 +145,11 @@ void ft_check_text(t_data *game)
 
 int	ft_parsering(t_data *game, char *buff)
 {
-	(void)game;
+	// int i;
+	// int j;
+
+	// j = -1;
+	// i = -1;
 	if (!buff)
 		exit(-1);
 	if (ft_strchr("NSWE", buff[0]))
@@ -140,6 +161,11 @@ int	ft_parsering(t_data *game, char *buff)
 		// printf("%c", buff[0]);
 		ft_ciel_floor(game, buff);
 	}
+	// while(ft_isdigit(buff[++i]))
+	// {
+
+	// }
+	// ft_print_mat(game->map_x);
 	// write(1, buff, strlen(buff));
 	// printf("%lu\n", strlen(buff));
 	return (0);
