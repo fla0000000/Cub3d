@@ -1,9 +1,10 @@
-NO ./maps/texture/minecraft.xpm
-SO ./maps/texture/minecraft.xpm
-WE ./maps/texture/minecraft.xpm
-EA ./maps/texture/minecraft.xpm
-C 135 ,206,235
-F 91,255,222
+NO ./maps/texture/no.xpm
+SO ./maps/texture/so.xpm
+WE ./maps/texture/we.xpm
+EA ./maps/texture/ea.xpm
+C 1,2,3
+F 4,5,6
+
 
 
 1111011111111111111
@@ -18,4 +19,4 @@ F 91,255,222
 100000000010110101111111111111111111111111
 1000000000101101011      
 1000000000101101011      
-111111111111111111111111      
+111111111111111111111111  

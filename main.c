@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:59:53 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/11 00:03:30 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/11 16:46:44 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,16 @@ void parser_map(t_data *game, char *map_cub)
         buff = get_next_line(fd);
     }
     free(buff);
+     printf("no:%s\n", game->value.no);
+    printf("so:%s\n", game->value.so);
+    printf("we:%s\n", game->value.we);
+    printf("ea:%s\n", game->value.ea);
      printf("game->value.c.b:%d\n", game->value.c.b);
      printf("game->value.c.g:%d\n", game->value.c.g);
+    printf("game->value.c.r:%d\n", game->value.c.r);
     printf("game->value.f.b:%d\n", game->value.f.b);
     printf("game->value.f.g:%d\n", game->value.f.g);
     printf("game->value.f.r:%d\n", game->value.f.r);
-           printf("game->value.r.g:%d\n", game->value.c.r);
 }
 
 void init_mlx(t_cub3d *cub3d)
@@ -53,6 +57,7 @@ int main(int ac, char **av)
     ft_bzero(&game, sizeof(t_data));
     ft_check_input(ac, av[1]);
     parser_map(&game, av[1]);
+    ft_check_text(&game);
     init_mlx(&cub3d);
     //  parser_map(av[1]);
     
