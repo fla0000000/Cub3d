@@ -6,40 +6,13 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:59:53 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/12 00:14:29 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/15 23:03:09 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void parser_map(t_data *game, char *map_cub)
-{
-    int fd;
-    char *buff;
 
-    buff = 0;
-    fd = open(map_cub, O_RDONLY);
-    if(fd == -1)
-       exit(write(2, "Error\nMap not found\n", 20));
-    buff = get_next_line(fd);
-    while(buff)
-    {
-        ft_parsering(game, buff);
-        free(buff);
-        buff = get_next_line(fd);
-    }
-    free(buff);
-     printf("no:%s\n", game->value.no);
-    printf("so:%s\n", game->value.so);
-    printf("we:%s\n", game->value.we);
-    printf("ea:%s\n", game->value.ea);
-     printf("game->value.c.b:%d\n", game->value.c.b);
-     printf("game->value.c.g:%d\n", game->value.c.g);
-    printf("game->value.c.r:%d\n", game->value.c.r);
-    printf("game->value.f.b:%d\n", game->value.f.b);
-    printf("game->value.f.g:%d\n", game->value.f.g);
-    printf("game->value.f.r:%d\n", game->value.f.r);
-}
 
 void init_mlx(t_cub3d *cub3d)
 {
@@ -48,30 +21,17 @@ void init_mlx(t_cub3d *cub3d)
     mlx_loop(cub3d->mlx);
 }
 
-void initfc(t_data *game)
-{
-    game->value.c.b = -1;
-    game->value.c.r = -1;
-    game->value.c.g = -1;
-    game->value.f.b = -1;
-    game->value.f.r = -1;
-    game->value.f.g = -1;
-    
-}
-
 int main(int ac, char **av)
 {
     t_data game;
     t_cub3d cub3d;
-        
+  
     ft_bzero(&game, sizeof(t_data));
-    ft_check_input(ac, av[1]);
-    initfc(&game);
-    parser_map(&game, av[1]);
-    ft_check_text(&game);
+    ft_check_input(&game, ac, av[1]);
+    parser_y(&game, av[1]);
+    ft_print_mat(game.map_x);
+    // parser_map(&game, av[1]);
     init_mlx(&cub3d);
-    //  parser_map(av[1]);
-    
 }
 
 

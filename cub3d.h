@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:00:25 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/12 00:14:37 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/15 20:05:25 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # include <math.h>
 # include <sys/time.h>
 # include <time.h>
+
+#	define INVISI_CHAR "\t\v\r\f "
 
 typedef struct				s_rgb
 {
@@ -67,10 +69,15 @@ typedef struct s_cub3d
 	struct s_data	env;
 }					t_cub3d;
 
-//check_map
-int ft_parsering(t_data *game, char *buff);
-void				ft_check_input(int ac, char *av);
-void ft_check_text(t_data *game);
-void	ft_print_mat(char **mat);
+void ft_print_mat(char **mat);
+//parser
+void parser_y(t_data *game, char *map_cub);
+void	parser_map(t_data *game, char *path);
+
+
+//check_parser
+void ft_check_input(t_data *game, int ac, char *av);
+int	check_virg(char *substr);
+void	ft_check_text(t_data *game);
 
 #endif
