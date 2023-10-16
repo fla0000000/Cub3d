@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:00:25 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/15 20:05:25 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/16 17:45:03 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ typedef struct s_cub3d
 
 void ft_print_mat(char **mat);
 //parser
-void parser_y(t_data *game, char *map_cub);
-void	parser_map(t_data *game, char *path);
+void parser_cub(t_data *game, char *map_cub);
+void	parser_map(t_data *game);
 
 
 //check_parser

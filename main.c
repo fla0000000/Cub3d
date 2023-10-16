@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:59:53 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/15 23:03:09 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/16 17:44:37 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int main(int ac, char **av)
   
     ft_bzero(&game, sizeof(t_data));
     ft_check_input(&game, ac, av[1]);
-    parser_y(&game, av[1]);
-    ft_print_mat(game.map_x);
-    // parser_map(&game, av[1]);
+    parser_cub(&game, av[1]);
+    // ft_print_mat(game.map_x);
+    parser_map(&game);
     init_mlx(&cub3d);
 }
 

@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 18:41:51 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/15 22:20:27 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/16 17:47:54 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,14 @@ void ft_mapp(t_data *game, char *buff)
 		}
 }
 
-void	parser_map(t_data *game, char *path)
+void	parser_map(t_data *game)
 {
-	char *buff;
-	int fd;
-
-	fd = open(path, O_RDONLY);
-	if (fd == -1)
-		exit(write(2, "Error\nMap not found\n", 20));
-	buff = get_next_line(fd);
-	while (buff)
+	int i;
+	
+	i = 0;
+	while (game->map_x[i])
 	{
-		ft_mapp(game, buff);
-		free(buff);
-		buff = get_next_line(fd);
+		printf("\n%d%s\n", i, game->map_x[i]);
+		i++;
 	}
 }
