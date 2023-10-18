@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:00:25 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/16 17:45:03 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/17 21:05:12 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,13 @@ typedef struct s_value
     
 }					t_value;
 
-typedef struct s_map
-{
-	char			*line;
-	struct s_map	*next;
-}					t_map;
-
 typedef struct s_data
 {
-	int				x;
+	size_t				x;
 	int				y;
     char **map_x;
 	struct s_value	value;
-	struct s_map	*map;
+	char	**map;
 }					t_data;
 
 typedef struct s_cub3d
@@ -72,7 +66,8 @@ typedef struct s_cub3d
 void ft_print_mat(char **mat);
 //parser
 void parser_cub(t_data *game, char *map_cub);
-void	parser_map(t_data *game);
+void	long_len_x(t_data *game);
+void	ft_mapp(t_data *game);
 
 
 //check_parser

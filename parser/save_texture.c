@@ -6,12 +6,13 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 03:49:17 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/16 17:42:13 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/18 14:45:27 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
+// inserisce i valori texture
 void	ft_texture(t_data *game, char *buff)
 {
 	int	i;
@@ -105,7 +106,7 @@ void	ft_ciel_floor2(t_data *game, char *text, char *substr, int i)
 	free(text);
 	free(substr);
 }
-
+//inserisce i valori FC
 void	ft_ciel_floor(t_data *game, char *buff, int j)
 {
 	char	*text;
@@ -136,7 +137,8 @@ void	ft_ciel_floor(t_data *game, char *buff, int j)
 	}
 	ft_ciel_floor2(game, text, substr, i);
 }
-
+// 0 se le texture sono vuote
+// 1 se sono tutte piene
 int	flag(t_data *game)
 {
 	if (!game->value.ea)
@@ -213,7 +215,8 @@ void	parser_cub(t_data *game, char *map_cub)
 	// game->map_x = realloc(game->map_x, sizeof(char *) * 1);
 	// game->map_x[++i] = 0;
 	free(buff);
-	// ft_check_text(game);
+	ft_check_text(game);
+	//   long_len_x(game);
 	printf("no:%s\n", game->value.no);
 	printf("so:%s\n", game->value.so);
 	printf("we:%s\n", game->value.we);
@@ -225,4 +228,5 @@ void	parser_cub(t_data *game, char *map_cub)
 	printf("game->value.f.g:%d\n", game->value.f.g);
 	printf("game->value.f.r:%d\n", game->value.f.r);
 	printf("\ny:%d\n", game->y);
+    // printf("%zu\n", game->x);
 }

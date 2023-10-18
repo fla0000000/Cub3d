@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 17:09:04 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/15 22:52:04 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/17 16:19:33 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_check_text(t_data *game)
 		exit(write(2, "Error: Invalid check_so\n", 25));
 }
 
-
+// conta le ,
 int	check_virg(char *substr)
 {
 	int	i;
@@ -82,3 +82,5 @@ void	ft_check_input(t_data *game, int ac, char *av)
 		exit(write(2, "Error: Map isnt in .cub format\n", 24));
 	initfc(game);
 }
+
+//5

@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:59:53 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/16 17:44:37 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/18 15:14:59 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,23 @@ void init_mlx(t_cub3d *cub3d)
     cub3d->mlx_win = mlx_new_window(cub3d->mlx, 500, 500, "CUB3D" );
     mlx_loop(cub3d->mlx);
 }
+void ft_parser(t_data *game, int ac, char *av)
+{
+     ft_check_input(game, ac, av);
+     parser_cub(game, av);
+     long_len_x(game);
+    //  ft_m app(game)
+}
+void	ft_free_mat(char **mat)
+{
+
+	if (!(*mat))
+		return ;
+	while ((*mat))
+		free((*mat));
+	free(*mat);
+	*mat = NULL;
+}
 
 int main(int ac, char **av)
 {
@@ -27,10 +44,14 @@ int main(int ac, char **av)
     t_cub3d cub3d;
   
     ft_bzero(&game, sizeof(t_data));
-    ft_check_input(&game, ac, av[1]);
-    parser_cub(&game, av[1]);
-    // ft_print_mat(game.map_x);
-    parser_map(&game);
+    ft_parser(&game,ac,av[1]);
+    printf("\nx:%zu\n", game.x);
+    // ft_check_input(&game, ac, av[1]);
+    // parser_cub(&game, av[1]);
+    //   long_len_x(&game);
+    //       printf("%zu\n", game.x);
+    // ft_print_mat(game.map_x);x
+    // ft_free_mat(game.map_x);
     init_mlx(&cub3d);
 }
 
