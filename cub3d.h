@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:00:25 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/17 21:05:12 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/18 21:00:08 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 //# include "minilibx-linux/mlx.h"
-# include "libftreal/libft.h"
+# include "libft/libft.h"
 # include "getnextline/get_next_line.h"
 # include <fcntl.h>
 # include <math.h>

@@ -1,7 +1,7 @@
 NAME = cub3d
 
 SRCS = main.c sizemap.c
-LBFT = $(wildcard libftreal/*.c)
+LBFT = $(wildcard libft/*.c)
 GNL   =  $(wildcard getnextline/*.c)
 PARSER = $(wildcard parser/*.c)
 
