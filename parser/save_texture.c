@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 03:49:17 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/18 14:45:27 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/18 23:51:14 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,6 @@ void	ft_ciel_floor(t_data *game, char *buff, int j)
 	int		i;
 
 	i = 0;
-	substr = NULL;
 	text = ft_substr(buff, j, 1);
 	substr = ft_substr(buff, j + 1, ft_strlen(buff) - j + 1);
 	if (check_virg(substr) != 2)
@@ -177,19 +176,24 @@ int	ft_parser_tex(t_data *game, char *buff, int *i)
 			ft_ciel_floor(game, buff, j);
 			return (0);
 		}
-	}
-	if (flag(game) == 1)
-	{
-		game->y++;
-		if (!game->map_x)
-			game->map_x = realloc(game->map_x, sizeof(char *) * game->y + 1);
-		else
-			game->map_x = realloc(game->map_x, sizeof(char *) * game->y);
-		game->map_x[(*i)] = ft_strdup(buff);
-		game->map_x[++(*i)] = 0;
+		if (flag(game) == 1)
+			if (ft_isdigit(buff[j]))
+			{
+					++game->y;
+				if (game->y == 1)
+					game->map_x = (char **)ft_realloc(game->map_x,
+							sizeof(char *), 0, game->y + 1);
+				else
+					game->map_x = (char **)ft_realloc(game->map_x,
+							sizeof(char *), game->y, game->y + 1);
+				game->map_x[++(*i)] = ft_strdup(buff);
+				// printf("%s\n", game->map_x[(*i)]);
+				game->map_x[(*i) + 1] = 0;
+				return (0);
+			}
+		
 	}
 	// write(1, buff, strlen(buff));
-	// printf("%lu\n", strlen(buff));
 	return (0);
 }
 // salvataggio delle texture e dei valori di CF
@@ -228,5 +232,5 @@ void	parser_cub(t_data *game, char *map_cub)
 	printf("game->value.f.g:%d\n", game->value.f.g);
 	printf("game->value.f.r:%d\n", game->value.f.r);
 	printf("\ny:%d\n", game->y);
-    // printf("%zu\n", game->x);
+	// printf("%zu\n", game->x);
 }

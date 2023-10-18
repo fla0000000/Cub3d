@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:59:53 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/18 15:14:59 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/18 23:34:17 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void ft_parser(t_data *game, int ac, char *av)
      ft_check_input(game, ac, av);
      parser_cub(game, av);
      long_len_x(game);
+    //  game->map[ft_strlen(*game->map) + 1] = 0;
     //  ft_m app(game)
 }
 void	ft_free_mat(char **mat)

@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:00:25 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/18 21:00:08 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/18 23:25:06 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ typedef struct s_value
 
 typedef struct s_data
 {
-	size_t				x;
+	int 			len_map;
+	size_t			x;
 	int				y;
     char **map_x;
 	struct s_value	value;
