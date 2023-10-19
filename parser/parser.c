@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 03:49:17 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/19 17:50:50 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/19 20:03:24 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,7 +194,7 @@ int	ft_parser_tex(t_data *game, char *buff, int *i)
 				game->map_x[++(*i)] = ft_strdup(buff);
 				// printf("%s\n", game->map_x[(*i)]);
 				game->map_x[(*i) + 1] = 0;
-				printf("\nmap_x:%s\n",  game->map_x[(*i)]);
+				// printf("\nmap_x:%s\n",  game->map_x[(*i)]);
 				return (0);
 			}
 		

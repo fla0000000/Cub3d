@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 18:41:51 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/19 17:43:45 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/19 20:03:40 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,25 @@ void	check(t_data *game)
 		x = -1;
 		while (game->map_x[y][++x])
 		{
-			// printf("\nmap%c\n", game->map_x[y][x]);
-			if (ft_strchr("10NSWED ", game->map_x[y][x]) ||  game->map_x[y][x] == '\n')
+			if (ft_strchr("10NSWED", game->map_x[y][x]))
+			{
 				continue ;
-			else
+				// printf("\nmap%c\n", game->map_x[y][x]);
+			}
+			if(game->map_x[y][x] == '\n')
+			{
+				game->map_x[y][x] = 'K';
+				// printf("\nmap/n%c\n", game->map_x[y][x]);
+			}
+			if(game->map_x[y][x] == ' ')
+			{
+				game->map_x[y][x] = 'K';
+				// printf("\nma p%c\n", game->map_x[y][x]);
+			}
+			if(!ft_strchr("10NSWEDK \n", game->map_x[y][x]))
 					exit(write(2, "Error:invalid caratter\n", 22));
 		}
+		printf("\nmap%s\n", game->map_x[y]);
 	}
 }
 
