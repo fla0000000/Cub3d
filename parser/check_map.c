@@ -6,12 +6,13 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 18:41:51 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/19 20:03:40 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/19 20:09:05 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
+//controlla se i valori che non sono 1 sono contornati da spazi
 void	check_fraime(t_data *game)
 {
 	int	y;
@@ -34,7 +35,7 @@ void	check_fraime(t_data *game)
 		}
 	}
 }
-
+//E TRASFORMA gli spazi in K
 //checka la presenza dei soli caratterri "1 0 N S W E 32 \n" nella mappa
 void	check(t_data *game)
 {
