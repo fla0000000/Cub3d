@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 18:41:51 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/19 20:09:05 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/20 17:17:30 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,19 @@ void	check_fraime(t_data *game)
 		}
 	}
 }
+
+int check_wall(t_data *game)
+{
+	int i;
+	
+	i = -1;
+	while(game->map_x[++i])
+	{
+	if(game->map_x[i][0] != 32 && game->map_x[i][0] != '1')
+		return(-1);
+	}
+	return(0);
+}
 //E TRASFORMA gli spazi in K
 //checka la presenza dei soli caratterri "1 0 N S W E 32 \n" nella mappa
 void	check(t_data *game)
@@ -43,12 +56,14 @@ void	check(t_data *game)
 	int	x;
 
 	y = -1;
+			if(check_wall(game))
+					exit(write(2, "Error:invalid caratter\n", 22));
 	while (game->map_x[++y])
 	{
 		x = -1;
 		while (game->map_x[y][++x])
 		{
-			if (ft_strchr("10NSWED", game->map_x[y][x]))
+			if (ft_strchr("10NSWED", game->map_x[y][x]) )
 			{
 				continue ;
 				// printf("\nmap%c\n", game->map_x[y][x]);
