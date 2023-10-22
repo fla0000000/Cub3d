@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 03:49:17 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/19 20:03:24 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/22 19:28:25 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,11 +222,8 @@ void	parser_cub(t_data *game, char *map_cub)
 		free(buff);
 		buff = get_next_line(fd);
 	}
-	// game->map_x = realloc(game->map_x, sizeof(char *) * 1);
-	// game->map_x[++i] = 0;
 	free(buff);
 	ft_check(game);
-	//   long_len_x(game);
 	printf("no:%s\n", game->value.no);
 	printf("so:%s\n", game->value.so);
 	printf("we:%s\n", game->value.we);
@@ -238,6 +235,5 @@ void	parser_cub(t_data *game, char *map_cub)
 	printf("game->value.f.g:%d\n", game->value.f.g);
 	printf("game->value.f.r:%d\n", game->value.f.r);
 	printf("\ny:%d\n", game->y);
-	     printf("\nx:%zu\n", game->x);
-	// printf("%zu\n", game->x);
+	printf("\nx:%zu\n", game->x);
 }

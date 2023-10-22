@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:59:53 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/19 17:37:20 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/10/22 19:59:59 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,15 @@ int main(int ac, char **av)
     // parser_cub(&game, av[1]);
     //   long_len_x(&game);
     //       printf("%zu\n", game.x);
-    // ft_print_mat(game.map_x);x
+    // ft_print_mat(game.map_x);
     // ft_free_mat(game.map_x);
     init_mlx(&cub3d);
 }
+
+// parser
+// vedi i tab  v
+// vedi se non ci sono piu personaggi nella mappa
+// se la mappa giocabile
 
 
 // | KEY           | Action        |
