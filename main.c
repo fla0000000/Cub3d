@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:59:53 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/22 19:59:59 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/11/16 22:32:49 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ void init_mlx(t_cub3d *cub3d)
 {
      cub3d->mlx =  mlx_init();
     cub3d->mlx_win = mlx_new_window(cub3d->mlx, 500, 500, "CUB3D" );
+    cub3d->minimap.img.img = mlx_new_image(cub3d->mlx, cub3d->env.x * 11,
+			cub3d->env.y * 11);
+    cub3d->minimap.img.addr = mlx_get_data_addr(cub3d->minimap.img.img,
+			&cub3d->minimap.img.bits_per_pixel, &cub3d->minimap.img.line_length,
+			&cub3d->minimap.img.endian);
     mlx_loop(cub3d->mlx);
 }
 void ft_parser(t_data *game, int ac, char *av)

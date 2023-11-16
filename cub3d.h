@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:00:25 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/10/20 17:03:58 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/11/16 22:42:34 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,25 @@
 
 #	define INVISI_CHAR "\t\v\r\f "
 
+// img_ptr: Puntatore alla struttura di dati che rappresenta l'immagine.
+// bits_per_pixel: Numero di bit utilizzati per rappresentare ogni pixel nell'immagine.
+// size_line: Dimensione di una singola riga dell'immagine in byte.
+// endian: Indica se l'architettura del sistema è little-endian o big-endian.
+typedef struct s_img {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_img;
+
+typedef struct s_vector
+{
+	double	x;
+	double	y;
+}	t_vector;
+
+
 typedef struct				s_rgb
 {
 	int						r;
@@ -47,6 +66,18 @@ typedef struct s_value
     
 }					t_value;
 
+typedef struct s_minimap
+{
+	t_img		img;
+	int			x;
+	int			y;
+	int			width;
+	int			height;
+	t_vector	begin_ray;
+	t_vector	end_ray;
+}	t_minimap;
+
+
 typedef struct s_data
 {
 	int 			len_map;
@@ -61,6 +92,7 @@ typedef struct s_cub3d
 {
 	void			*mlx;
 	void			*mlx_win;
+	t_minimap		minimap;
 	struct s_data	env;
 }					t_cub3d;
 
